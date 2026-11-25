@@ -2,9 +2,11 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { secureHeaders } from "hono/secure-headers";
-import pino from "pino";
 import { ZodError } from "zod";
 import { env } from "./env.js";
+import { createLogger } from "./utils/pino/index.js";
+
+export const logger = createLogger("SERVER")
 
 type AppEnv = {
   Variables: {
@@ -24,11 +26,8 @@ export class AppError extends Error {
   }
 }
 
-export const logger = pino({
-  level: env.NODE_ENV === "production" ? "info" : "debug",
-});
 
-const allowedOrigins = env.CORS_ORIGINS.split(",")
+const allowedOrigins = env.CORS_ORIGINS
   .map((origin) => origin.trim())
   .filter(Boolean);
 
