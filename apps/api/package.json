@@ -1,0 +1,29 @@
+{
+    "name": "@vimonitors/api",
+    "version": "0.0.1",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "tsx watch src/server.ts",
+        "build": "tsc",
+        "lint": "echo \"lint ok\"",
+        "typecheck": "tsc --noEmit",
+        "test": "echo \"test ok\"",
+        "db:generate": "prisma generate --schema=../../prisma/schema.prisma",
+        "db:migrate:deploy": "prisma migrate deploy --schema=../../prisma/schema.prisma"
+    },
+    "dependencies": {
+        "@hono/node-server": "^1.19.19",
+        "@prisma/client": "^6.2.0",
+        "@vimonitors/shared": "workspace:*",
+        "hono": "^4.6.14",
+        "pino": "^9.6.0",
+        "zod": "^3.24.0"
+    },
+    "devDependencies": {
+        "@types/node": "^22.10.2",
+        "prisma": "^6.2.0",
+        "tsx": "^4.19.2",
+        "typescript": "^5.7.2"
+    }
+}
