@@ -1,7 +1,7 @@
 // apps/api/src/server.ts
 import { serve } from "@hono/node-server";
-import { app, logger } from "./app";
-import { env } from "./env";
+import { app, logger } from "./app.js";
+import { env } from "./env.js";
 
 serve(
   {
