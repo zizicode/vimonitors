@@ -5,7 +5,6 @@ import { secureHeaders } from "hono/secure-headers";
 import pino from "pino";
 import { ZodError } from "zod";
 import { env } from "./env.js";
-import { serve } from "@hono/node-server";
 
 type AppEnv = {
   Variables: {
@@ -122,16 +121,4 @@ app.onError((err, c) => {
   );
 });
 
-// const port = Number(process.env.PORT ?? 4000);
-
-// serve(
-//   {
-//     fetch: app.fetch,
-//     port,
-//   },
-//   (info) => {
-//     console.log(`API escuchando en http://localhost:${info.port}`);
-//   }
-// );
-
-// export type AppType = typeof app;
+export type AppType = typeof app;
