@@ -1,4 +1,5 @@
 // apps/api/src/server.ts
+import "dotenv/config";
 import { serve } from "@hono/node-server";
 import { app, logger } from "./app.js";
 import { env } from "./env.js";

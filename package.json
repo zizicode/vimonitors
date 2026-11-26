@@ -3,7 +3,7 @@
     "private": true,
     "packageManager": "pnpm@9.15.0",
     "scripts": {
-        "dev": "pnpm -r --parallel run dev",
+        "dev": "pnpm --filter @vimonitors/api run dev & pnpm --filter @vimonitors/store --filter @vimonitors/dashboard --parallel run dev",
         "build": "pnpm -r run build",
         "lint": "pnpm -r run lint",
         "typecheck": "pnpm -r run typecheck",

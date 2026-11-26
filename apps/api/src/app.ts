@@ -5,6 +5,7 @@ import { secureHeaders } from "hono/secure-headers";
 import { ZodError } from "zod";
 import { env } from "./env.js";
 import { createLogger } from "./utils/pino/index.js";
+import { healthRouter } from "./modules/health/health.routes.js";
 
 export const logger = createLogger("SERVER")
 
@@ -64,16 +65,7 @@ app.use(
 
 app.use("*", secureHeaders());
 
-app.get("/health", (c) => {
-  return c.json({
-    data: {
-      status: "ok",
-      service: "vimonitors-api",
-      timestamp: new Date().toISOString(),
-    },
-    meta: {},
-  });
-});
+app.route("/", healthRouter);
 
 app.onError((err, c) => {
   const requestId = c.get("requestId") ?? crypto.randomUUID();
