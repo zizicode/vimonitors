@@ -5,7 +5,7 @@
     "type": "module",
     "scripts": {
         "dev": "node --env-file=.env ./node_modules/tsx/dist/cli.mjs watch src/server.ts",
-        "build": "tsup src/server.ts --format esm --out-dir dist --clean",
+        "build": "tsc -p tsconfig.json",
         "start": "node dist/server.js",
         "lint": "echo \"lint ok\"",
         "typecheck": "tsc --noEmit",
@@ -26,7 +26,6 @@
         "@types/node": "^22.10.2",
         "pino-pretty": "^13.2.0",
         "prisma": "^6.19.3",
-        "tsup": "^9.0.0",
         "tsx": "^4.19.2",
         "typescript": "^5.7.2"
     }
