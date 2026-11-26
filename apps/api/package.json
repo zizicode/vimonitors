@@ -10,8 +10,8 @@
         "lint": "echo \"lint ok\"",
         "typecheck": "tsc --noEmit",
         "test": "echo \"test ok\"",
-        "db:generate": "prisma generate --schema=../../prisma/schema.prisma",
-        "db:validate": "prisma validate --schema=../../prisma/schema.prisma"
+        "db:generate": "prisma generate --schema=prisma/schema.prisma",
+        "db:validate": "prisma validate --schema=prisma/schema.prisma"
     },
     "dependencies": {
         "@hono/node-server": "^1.19.19",
